@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
+{% block title %}Login{% endblock %}
+{% block header %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>LogIn</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Login-Form-Clean.css') }}">
-</head>
+{% endblock %}
 
-<body>
+{% block content %}
     <div class="login-clean" style="background: rgb(246,200,172);">
         <form method="post">
             <h2 class="sr-only">Login Form</h2>
@@ -20,6 +20,4 @@
     </div>
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
-</body>
-
-</html>
+{% endblock %}

@@ -1,10 +1,13 @@
 ## Imposter Who?
 
-Starter App, powered by Real Python
-
-
+In your terminal:
 ```sh
-$ python3 -m venv venv
-. venv/bin/activate
-. pip3 install flask
+#Only need to do once
+sh setup.sh
+
+#Every time when wanting to run flask
+sh run_server.sh
+
+#To quit the (venv) username@username
+deactivate
 ```

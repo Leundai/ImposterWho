@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
+{% block title %}Register{% endblock %}
+{% block header %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>SignUp</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Registration-Form-with-Photo.css') }}">
-</head>
+{% endblock %}
 
-<body style="background: rgb(132,190,88);">
+{% block content %}
+<div style="background: rgb(132,190,88);">
     <div class="register-photo" style="background: rgb(132,190,88);">
         <div class="form-container"><div class="image-holder"></div>
             <form method="post">
@@ -25,6 +26,5 @@
     </div>
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
-</body>
-
-</html>
+</div>
+{% endblock %}
