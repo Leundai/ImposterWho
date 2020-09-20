@@ -1,3 +1,23 @@
+
+.bg-gradient-primary-register {
+    height: 100%;
+    background: rgb(219,255,198);
+    background: linear-gradient(90deg, rgba(219,255,198,1) 0%, rgba(187,231,157,1) 0%, rgba(132,190,88,1) 100%, rgba(0,212,255,1) 100%);
+    background-size: cover;
+}
+
+.bg-gradient-primary-login {
+    height: 100%;
+    background: rgb(246,200,172);
+    background: linear-gradient(90deg, rgba(246,200,172,1) 0%, rgba(242,111,31,1) 93%, rgba(241,91,0,1) 100%);
+    background-size: cover;
+}
+
+.login-register {
+    padding-top: 5%;
+}
+
+
 #home-head {
     background: url("../img/header.png") no-repeat;background-size: cover; position: relative;
     overflow: hidden;

@@ -6,9 +6,15 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
 <script src="https://use.fontawesome.com/12c3e2ccec.js"></script>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Imposter Who?</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    {% if g.user %}
+    <!-- This will become to DashBoard-->
+      <a class="navbar-brand" href="/">Imposter Who?</a>
+    {% else %}
+      <a class="navbar-brand" href="/">Imposter Who?</a>
+    {% endif %}
+    
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -18,16 +24,13 @@
         <li class="nav-item active">
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+        <!-- Make sure it redirects to dashboard! or to login!-->
+        {% if g.user %}
+        <li class="nav-item"><a class="nav-link" href="/">Dashboard</a></li>
+        {% else %}
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.login') }}">Dashboard</a></li>
+        {% endif %}
+
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -46,16 +49,6 @@
     {% block header %}{% endblock %}
   </header>
 
-  {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          {{messages[0]}}
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        {% endif %}
-    {% endwith %}  
   {% block content %}{% endblock %}
-</body>
+
 </html>
