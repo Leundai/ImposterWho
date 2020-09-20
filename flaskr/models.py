@@ -37,3 +37,30 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User {}>'.format(self.email)
+
+class Messages(db.Model):
+    """Data model for messages."""
+
+    __tablename__ = 'messages'
+    id = db.Column(
+        db.Integer,
+        primary_key=True
+    )
+    messages = db.Column(
+        db.String(150),
+        index=False,
+        unique=False,
+        nullable=False
+    )
+    created = db.Column(
+        db.DateTime,
+        index=False,
+        unique=False,
+        nullable=False
+    )
+    email = db.Column(
+        db.String(80),
+        index=True,
+        unique=False,
+        nullable=False
+    )

@@ -1,15 +1,15 @@
 import pandas as pd
-import sqlite3
+from sqlalchemy.types import String
 
-df = pd.read_csv('statements.csv')
+def to_csv():
+	df = pd.read_csv('messages.csv', engine='python', encoding='utf-8')
+	return df
 
-db = sqlite3.connect('db_statements.db')
-c = db.cursor()
-
-c.execute('CREATE TABLE STATEMENTS (Community text, StatementOne text, StatementTwo text, StatementThree text)')
-db.commit()
-
-df.to_sql('statements', db)
-
-for row in c.fetchall():
-    print (row)
+def to_sql(df, db):
+	df.to_sql(name='statements', con=db.engine, index_label='id', if_exists='replace', 
+		dtype={
+		'community': String(30), 
+		'one': String(150),
+		'two': String(150),
+		'three': String(150)
+		}
